@@ -22,7 +22,32 @@ XOOPS Cube Legacyで使えるSmartyプラグイン集。
 
 ### Function
 
-There are no functions plugins.
+#### required_sign: フォームの項目に「必須」を表示するプラグイン
+
+```XCube_ActionForm``` を使っているフォームで、項目名の右に「必須」や「任意」を出すためのプラグインです。```XCube_ActionForm``` の ```XCube_FieldProperty::$mDepend``` の設定を見て動的に必須表示を出します。
+
+```
+<{required_sign form=$form name="(フィールド名)"}>
+```
+
+必須表示のデフォルトHTMLは ```<span class="required">(required)</span>``` です。定数 ```_XOOPS_FORM_REQUIRED_HTML``` を定義することで、このHTMLを置き換えることができます。
+
+```
+define('_XOOPS_FORM_REQUIRED_HTML', '<span class="required">[必須]</span>');
+define('_XOOPS_FORM_REQUIRED_HTML', '<span class="required">＊</span>');
+// etc...
+```
+
+任意表示のデフォルトHTMLは空の文字列です。定数 ```_XOOPS_FORM_OPTIONAL_HTML``` を定義することで、任意の場合も表示を出すことができるようになります。
+
+```
+define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">(任意)</span>');
+define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">[任意]</span>');
+// etc...
+```
+
+見栄えに関しては、CSSで ```form span.required``` や ```form span.optional``` のスタイルを定義すると良いでしょう。
+
 
 ### Modifier
 
