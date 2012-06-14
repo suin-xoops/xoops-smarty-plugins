@@ -48,6 +48,17 @@ define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">[任意]</span>');
 
 見栄えに関しては、CSSで ```form span.required``` や ```form span.optional``` のスタイルを定義すると良いでしょう。
 
+#### serialize_form: フォーム項目を input[type=hidden] で出力する
+
+モジュール開発者向けプラグインです。
+
+```XCube_ActionForm``` のプロパティをすべて ```<input type="hidden" />``` にしてHTMLを出力します。確認画面をつくる場合に使います。
+
+```
+<{serialize_form form=$actionForm}>
+```
+
+
 
 ### Modifier
 
