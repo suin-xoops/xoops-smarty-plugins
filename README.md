@@ -18,11 +18,13 @@ XOOPS Cube Legacyで使えるSmartyプラグイン集。
 * xoops_trust_path/vendor/smarty/plugins/ にプラグインファイルを配置する
 
 
-## ドキュメント
+# ドキュメント
 
-### Function
 
-#### required_sign: フォームの項目に「必須」を表示するプラグイン
+## Function
+
+
+### required_sign: フォームの項目に「必須」を表示するプラグイン
 
 ```XCube_ActionForm``` を使っているフォームで、項目名の右に「必須」や「任意」を出すためのプラグインです。```XCube_ActionForm``` の ```XCube_FieldProperty::$mDepend``` の設定を見て動的に必須表示を出します。
 
@@ -48,7 +50,11 @@ define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">[任意]</span>');
 
 見栄えに関しては、CSSで ```form span.required``` や ```form span.optional``` のスタイルを定義すると良いでしょう。
 
-#### serialize_form: フォーム項目を input[type=hidden] で出力する
+
+
+
+
+### serialize_form: フォーム項目を input[type=hidden] で出力する
 
 モジュール開発者向けプラグインです。
 
@@ -60,9 +66,14 @@ define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">[任意]</span>');
 
 
 
-### Modifier
 
-#### date_count_down: 残り時間を表示するプラグイン
+
+
+## Modifier
+
+
+
+### date_count_down: 残り時間を表示するプラグイン
 
 未来の日時に対して、残り時間を「3分」、「10時間」、「4日」のように表示するプラグインです。
 
@@ -70,7 +81,9 @@ define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">[任意]</span>');
 <{$datetime|date_count_down}>
 ```
 
-#### date_weekday: 曜日の日本語を表示するプラグイン
+
+
+### date_weekday: 曜日の日本語を表示するプラグイン
 
 日付に対して、「月」や「火」などの曜日を表示するプラグイン。
 
@@ -84,7 +97,9 @@ define('_XOOPS_FORM_OPTIONAL_HTML', '<span class="optional">[任意]</span>');
 <{$datetime|date_weekday:true}>
 ```
 
-#### date_new: 最近の日付に new マークを付けるプラグイン
+
+
+### date_new: 最近の日付に new マークを付けるプラグイン
 
 日付の文字列(```strtotime()```関数で解釈可能な)またはUNIXタイムスタンプに対して使用します。
 
@@ -113,6 +128,11 @@ define('_XOOPS_DATE_NEW_STRING', '<img src="new.png" />'); // ややバッドノ
 newマークは class 属性として ```dateNew``` が付加されています。見栄えの修正はCSSで ```.dateNew``` を指定することで変更可能です。
 
 
-### Block
+
+
+## Block
+
+
+
 
 There are no block plugins.
