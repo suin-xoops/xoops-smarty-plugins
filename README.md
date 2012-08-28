@@ -127,8 +127,54 @@ define('_XOOPS_DATE_NEW_STRING', '<img src="new.png" />'); // ややバッドノ
 
 newマークは class 属性として ```dateNew``` が付加されています。見栄えの修正はCSSで ```.dateNew``` を指定することで変更可能です。
 
+### human_filse_size: ファイルサイズをKB、MBなどに変換して表示する
 
+ファイルサイズの数値に対して `|human_file_size` をつけることで、自動的にKBやMBの表示に変換します。
 
+```
+<{$file_size|human_file_size}>
+```
+
+小数点以下の桁数を指定するには、第一引数に桁数を指定します。桁数を指定しない場合は、2桁まで表示されます。
+
+小数点以下1桁まで表示する例:
+
+```
+<{$file_size|human_file_size:1}>
+```
+
+デフォルトは2進接頭辞です。これは 1KB = 1024 バイトとして処理します。国際単位系で計算する場合は、`si`を第三引数に指定します。国際単位系は 1KB = 1000 バイトとして扱います。
+
+国際単位系(SI)として計算する例:
+
+```
+<{$file_size|human_file_size:2:"si"}>
+```
+
+単位の表記をローカライズする場合は、言語ファイルなどに下記の定数とその文言を定義します。
+
+```
+_HUMAN_FILE_SIZE_BYTES
+_HUMAN_FILE_SIZE_KB
+_HUMAN_FILE_SIZE_MB
+_HUMAN_FILE_SIZE_GB
+_HUMAN_FILE_SIZE_TB
+_HUMAN_FILE_SIZE_PB
+_HUMAN_FILE_SIZE_EB
+_HUMAN_FILE_SIZE_ZB
+_HUMAN_FILE_SIZE_YB
+```
+
+例:
+
+```
+define('_HUMAN_FILE_SIZE_BYTES, "バイト");
+define('_HUMAN_FILE_SIZE_KB',  	"キロバイト");
+define('_HUMAN_FILE_SIZE_MB',  	"メガバイト");
+define('_HUMAN_FILE_SIZE_GB',  	"ギガバイト");
+define('_HUMAN_FILE_SIZE_TB',  	"テラバイト");
+define('_HUMAN_FILE_SIZE_PB',  	"ペタバイト");
+```
 
 ## Block
 
