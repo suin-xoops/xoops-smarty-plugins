@@ -25,7 +25,17 @@ function smarty_function_serialize_form(array $params, Smarty $smarty)
 	$properties = $form->getFormProperties();
 
 	foreach ( $properties as $name => $property ) {
-		$value = htmlspecialchars($form->get($name), ENT_QUOTES, 'UTF-8');
+		$value = $form->get($name);
+
+		if ( is_object($value) === true ) {
+			continue; // For file
+		}
+
+		if ( is_array($value) === true ) {
+			continue;
+		}
+
+		$value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 		echo sprintf('<input type="hidden" name="%s" value="%s" />%s', $name, $value, "\n");
 	}
 }
